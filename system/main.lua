@@ -4,7 +4,6 @@ local computer = require("computer")
 
 gpu.setResolution(80, 25)
 
-
 local function drawLoadingBar()
   local barWidth = 50
   local barHeight = 1
@@ -42,22 +41,19 @@ local fs = require("filesystem")
 local mayner = require("MAYNERAPI")
 local event = require("event")
 
-local function workspace()
+------------------------------------Main-WorkSpace------------------------------
+gpu.setForeground(0xFFFFFF)
+gpu.setBackground(0x6BC1F7)
+gpu.fill(1, 1, 80, 25, " ")
 
 gpu.setBackground(0xFFFFFF)
 gpu.setForeground(0x000000)
 gpu.fill(1, 1, 80, 1, " ")
 
-------------------------------------Main-WorkSpace------------------------------
-gpu.setForeground(0xFFFFFF)
-gpu.setBackground(0x6BC1F7)
-gpu.fill(1, 1, 80, 25, " ")
-  
 mayner.DrawButton(1, 1, 1, 1, "AmijaOS", 0x000000, 0xFFFFFF, function()
       computer.shutdown()
 end)
 --------------------------------------------------------------------------------
 while true do
     event.pull("touch")
-end
 end
