@@ -34,7 +34,7 @@ gpu.fill(1, 1, 80, 25, " ")
 
 gpu.setBackground(0xbb6058)
 gpu.setForeground(0xFFFFFF)
-gpu.set(34, 12, "AmijaOS")
+gpu.set(37, 12, "AmijaOS")
 
 drawLoadingBar()
 local fs = require("filesystem")
