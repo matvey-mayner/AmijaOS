@@ -2,6 +2,8 @@ local component = require("component")
 local gpu = component.gpu
 local computer = require("computer")
 
+StartType = "close"
+
 gpu.setResolution(80, 25)
 
 local function drawLoadingBar()
@@ -50,8 +52,30 @@ gpu.setBackground(0xFFFFFF)
 gpu.setForeground(0x000000)
 gpu.fill(1, 1, 80, 1, " ")
 
-mayner.DrawButton(1, 1, 1, 1, "AmijaOS", 0x000000, 0xFFFFFF, function()
-      computer.shutdown()
+local function StartMenu()
+  mayner.DrawButton(1, 2, 7, 1, "Shutdown", 0x000000, 0xFFFFFF, function()
+    if StartType == "open" then
+        computer.shutdown()
+      end
+  end)
+
+  mayner.DrawButton(1, 3, 7, 1, "Reboot  ", 0x000000, 0xFFFFFF, function()
+        if StartType == "open" then
+        computer.shutdown(true)
+      end
+  end)
+end
+
+mayner.DrawButton(1, 1, 7, 1, "AmijaOS", 0x000000, 0xFFFFFF, function()
+      StartMenu()
+      if StartType == "open" then
+        StartType = "close"
+        gpu.setBackground(0x6BC1F7)
+        gpu.fill(1, 2, 8, 2, " ")
+    elseif StartType == "close" then
+      StartType = "open"
+      StartMenu()
+    end
 end)
 --------------------------------------------------------------------------------
 while true do
