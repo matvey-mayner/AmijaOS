@@ -9,3 +9,4 @@ gpu.set(12, 4, "AppCenter")
     gpu.setBackground(0x6BC1F7)
     gpu.fill(12, 4, 63, 20, " ")
 end)
+
