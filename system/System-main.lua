@@ -73,7 +73,7 @@ local function StartMenu()
                   StartType = "close"
                   gpu.setBackground(0x6BC1F7)
                   gpu.fill(1, 2, 11, 3, " ")
-                  gpu.setBackground(0x6699ff)
+                  gpu.setBackground(0xFFFFFF)
                   gpu.setForeground(0x000000)
                   gpu.set(1, 1, "AmijaOS")
           assert(prog.execute("/system/bin/AppCenter.lua"))
