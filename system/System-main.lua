@@ -56,13 +56,13 @@ gpu.setForeground(0x000000)
 gpu.fill(1, 1, 80, 1, " ")
 
 local function StartMenu()
-  mayner.DrawButton(1, 2, 7, 1, "Shutdown   ", 0x000000, 0xFFFFFF, function()
+  mayner.DrawButton(1, 2, 7, 1, "Shutdown  ", 0x000000, 0xFFFFFF, function()
     if StartType == "open" then
         computer.shutdown()
       end
   end)
 
-  mayner.DrawButton(1, 3, 7, 1, "Reboot     ", 0x000000, 0xFFFFFF, function()
+  mayner.DrawButton(1, 3, 7, 1, "Reboot    ", 0x000000, 0xFFFFFF, function()
         if StartType == "open" then
         computer.shutdown(true)
       end
@@ -85,7 +85,7 @@ mayner.DrawButton(1, 1, 7, 1, "AmijaOS", 0x000000, 0xFFFFFF, function()
         
         StartType = "close"
         gpu.setBackground(0x6BC1F7)
-        gpu.fill(1, 2, 8, 3, " ")
+        gpu.fill(1, 2, 10, 3, " ")
     elseif StartType == "close" then
           gpu.setBackground(0x6699ff)
           gpu.setForeground(0x000000)
