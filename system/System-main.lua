@@ -3,7 +3,7 @@ local gpu = component.gpu
 local computer = require("computer")
 
 StartType = "close"
-WinType = "hide"
+AppOpen = nil
 
 gpu.setResolution(80, 25)
 
@@ -46,8 +46,6 @@ local event = require("event")
 local prog = require("programs")
 
 ------------------------------------Main-WorkSpace------------------------------
-drawLoadingBar = nil --Почему мы так решили? потому что мы не крысы и оперативу жрать не будем
-
 gpu.setForeground(0xFFFFFF)
 gpu.setBackground(0x6BC1F7)
 gpu.fill(1, 1, 80, 25, " ")
@@ -56,55 +54,88 @@ gpu.setBackground(0xFFFFFF)
 gpu.setForeground(0x000000)
 gpu.fill(1, 1, 80, 1, " ")
 
-local function StartMenu()
-  mayner.DrawButton(1, 2, 7, 1, "Shutdown ", 0x000000, 0xFFFFFF, function()
-    if StartType == "open" then
+local function Start()
+    mayner.DrawButton(1, 2, 12, 1, "shutdown    ", 0x000000, 0xFFFFFF, function()
+      if StartType == "open" then
         computer.shutdown()
       end
-  end)
-
-  mayner.DrawButton(1, 3, 7, 1, "Reboot   ", 0x000000, 0xFFFFFF, function()
-        if StartType == "open" then
+    end)
+    
+     mayner.DrawButton(1, 3, 12, 1, "Reboot     ", 0x000000, 0xFFFFFF, function()
+      if StartType == "open" then
         computer.shutdown(true)
       end
-  end)
-
-    mayner.DrawButton(1, 4, 7, 1, "AppCenter", 0x000000, 0xFFFFFF, function()
-        if StartType == "open" then
-                  StartType = "close"
-                  gpu.setBackground(0x6BC1F7)
-                  gpu.fill(1, 2, 11, 3, " ")
-                  gpu.setBackground(0xFFFFFF)
-                  gpu.setForeground(0x000000)
-                  gpu.set(1, 1, "AmijaOS")
-          assert(prog.execute("/system/bin/AppCenter.lua"))
+    end)
+    
+     mayner.DrawButton(1, 4, 12, 1, "AppCenter  ", 0x000000, 0xFFFFFF, function()
+      if StartType == "open" then
+        --assert(prog.execute("/system/bin/test.lua"))
+        AppOpen = "/system/bin/AppCenter.lua"
+        StartType = "close"
+        gpu.setBackground(0xFFFFFF)
+        gpu.setForeground(0x000000)
+        gpu.set(1, 1, "AmijaOS")
       end
-  end)
+    end)
 end
 
 mayner.DrawButton(1, 1, 7, 1, "AmijaOS", 0x000000, 0xFFFFFF, function()
-      StartMenu()
+      Start()
       if StartType == "open" then
-
-          gpu.setBackground(0xFFFFFF)
-          gpu.setForeground(0x000000)
-          gpu.set(1, 1, "AmijaOS")
+        
+        gpu.setBackground(0x6699ff)
+        gpu.setForeground(0x000000)
+        gpu.set(1, 1, "AmijaOS")
         
         StartType = "close"
         gpu.setBackground(0x6BC1F7)
-        gpu.fill(1, 2, 11, 3, " ")
-    elseif StartType == "close" then
-          gpu.setBackground(0x6699ff)
-          gpu.setForeground(0x000000)
-          gpu.set(1, 1, "AmijaOS")
-      
-      StartType = "open"
-      StartMenu()
-    end
+        gpu.fill(1, 2, 12, 3, " ")
+      elseif StartType == "close" then
+        gpu.setBackground(0xFFFFFF)
+        gpu.setForeground(0x000000)
+        gpu.set(1, 1, "AmijaOS")
+        
+        StartType = "open"
+        Start()
+      end
 end)
 
+local function clear(BackGround)
+  gpu.setBackground(BackGround)
+  gpu.fill(1, 2, 80, 25, " ")
+end
 
 --------------------------------------------------------------------------------
+
+
+
 while true do
     event.pull("touch")
+    if AppOpen ~= nil then
+      gpu.setBackground(0xFFFFFF)
+      gpu.setForeground(0xFF0000)
+      gpu.set(74, 1, "◖")
+      gpu.set(80, 1, "◗")
+      
+      gpu.setForeground(0x000000)
+      gpu.set(9, 1, "|")
+      gpu.set(11, 1, AppOpen)
+      mayner.DrawButton(75, 1, 5, 1, "  X  ", 0xFFFFFF, 0xFF0000, function()
+        AppOpen = nil
+        clear(0x6BC1F7)
+      end)
+      gpu.setBackground(0xFFFFF)
+      gpu.setForeground(0xFF0000)
+        
+      if StartType == "close" then
+        assert(prog.execute(AppOpen))
+      end
+    elseif AppOpen == nil then
+      gpu.setBackground(0xFFFFFF)
+      gpu.fill(7, 1, 80, 1, " ")
+      gpu.setBackground(0xFFFFFF)
+      gpu.setForeground(0x000000)
+      gpu.set(1, 1, "AmijaOS")
+    end
+    
 end
