@@ -44,6 +44,8 @@ local mayner = require("MAYNERAPI")
 local event = require("event")
 
 ------------------------------------Main-WorkSpace------------------------------
+drawLoadingBar = nil --Почему мы так решили? потому что мы не крысы и оперативу жрать не будем
+
 gpu.setForeground(0xFFFFFF)
 gpu.setBackground(0x6BC1F7)
 gpu.fill(1, 1, 80, 25, " ")
@@ -78,7 +80,7 @@ mayner.DrawButton(1, 1, 7, 1, "AmijaOS", 0x000000, 0xFFFFFF, function()
         gpu.setBackground(0x6BC1F7)
         gpu.fill(1, 2, 8, 2, " ")
     elseif StartType == "close" then
-          gpu.setBackground(0x838383)
+          gpu.setBackground(0x6699ff)
           gpu.setForeground(0x000000)
           gpu.set(1, 1, "AmijaOS")
       
