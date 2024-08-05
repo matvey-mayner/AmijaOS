@@ -3,7 +3,7 @@ local gpu = component.gpu
 local computer = require("computer")
 
 StartType = "close"
-WinType = "Show"
+WinType = "hide"
 
 gpu.setResolution(80, 25)
 
