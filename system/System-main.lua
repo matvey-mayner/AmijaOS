@@ -56,19 +56,19 @@ gpu.setForeground(0x000000)
 gpu.fill(1, 1, 80, 1, " ")
 
 local function StartMenu()
-  mayner.DrawButton(1, 2, 7, 1, "Shutdown  ", 0x000000, 0xFFFFFF, function()
+  mayner.DrawButton(1, 2, 7, 1, "Shutdown ", 0x000000, 0xFFFFFF, function()
     if StartType == "open" then
         computer.shutdown()
       end
   end)
 
-  mayner.DrawButton(1, 3, 7, 1, "Reboot    ", 0x000000, 0xFFFFFF, function()
+  mayner.DrawButton(1, 3, 7, 1, "Reboot   ", 0x000000, 0xFFFFFF, function()
         if StartType == "open" then
         computer.shutdown(true)
       end
   end)
 
-    mayner.DrawButton(1, 4, 7, 1, "AppCenter  ", 0x000000, 0xFFFFFF, function()
+    mayner.DrawButton(1, 4, 7, 1, "AppCenter ", 0x000000, 0xFFFFFF, function()
         if StartType == "open" then
           assert(prog.execute("/system/bin/AppCenter.lua"))
       end
