@@ -70,7 +70,12 @@ local function StartMenu()
 
     mayner.DrawButton(1, 4, 7, 1, "AppCenter", 0x000000, 0xFFFFFF, function()
         if StartType == "open" then
-          StartType = "close"
+                  StartType = "close"
+                  gpu.setBackground(0x6BC1F7)
+                  gpu.fill(1, 2, 11, 3, " ")
+                  gpu.setBackground(0x6699ff)
+                  gpu.setForeground(0x000000)
+                  gpu.set(1, 1, "AmijaOS")
           assert(prog.execute("/system/bin/AppCenter.lua"))
       end
   end)
