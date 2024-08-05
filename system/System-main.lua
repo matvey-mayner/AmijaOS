@@ -68,7 +68,7 @@ local function StartMenu()
       end
   end)
 
-    mayner.DrawButton(1, 4, 7, 1, "AppCenter ", 0x000000, 0xFFFFFF, function()
+    mayner.DrawButton(1, 4, 7, 1, "AppCenter", 0x000000, 0xFFFFFF, function()
         if StartType == "open" then
           assert(prog.execute("/system/bin/AppCenter.lua"))
       end
