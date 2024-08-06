@@ -67,17 +67,22 @@ local function Start()
       end
     end)
     
-     mayner.DrawButton(1, 4, 12, 1, "file manager", 0x000000, 0xFFFFFF, function()
+     mayner.DrawButton(1, 4, 12, 1, "AppCenter", 0x000000, 0xFFFFFF, function()
+      if StartType == "open" then
+        AppOpen = "/system/bin/AppCenter.lua"
+      end
+    end)
+
+     mayner.DrawButton(1, 5, 12, 1, "file manager", 0x000000, 0xFFFFFF, function()
       if StartType == "open" then
         --assert(prog.execute("/system/bin/test.lua"))
-        AppOpen = "/system/bin/test.lua"
+        AppOpen = "/system/bin/filemanager.lua"
         StartType = "close"
         gpu.setBackground(0xFFFFFF)
         gpu.setForeground(0x000000)
         gpu.set(1, 1, "AmijaOS")
       end
     end)
-end
 
 mayner.DrawButton(1, 1, 7, 1, "AmijaOS", 0x000000, 0xFFFFFF, function()
       Start()
@@ -89,7 +94,7 @@ mayner.DrawButton(1, 1, 7, 1, "AmijaOS", 0x000000, 0xFFFFFF, function()
         
         StartType = "close"
         gpu.setBackground(0x6BC1F7)
-        gpu.fill(1, 2, 12, 3, " ")
+        gpu.fill(1, 2, 12, 4, " ")
       elseif StartType == "close" then
         gpu.setBackground(0x6699ff)
         gpu.setForeground(0x000000)
@@ -97,9 +102,9 @@ mayner.DrawButton(1, 1, 7, 1, "AmijaOS", 0x000000, 0xFFFFFF, function()
         
         StartType = "open"
         Start()
-      end
-end)
-
+        end
+    end)
+end
 local function clear(BackGround)
   gpu.setBackground(BackGround)
   gpu.fill(1, 2, 80, 25, " ")
