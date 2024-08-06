@@ -92,7 +92,7 @@ mayner.DrawButton(1, 1, 7, 1, "AmijaOS", 0x000000, 0xFFFFFF, function()
         gpu.fill(1, 2, 12, 3, " ")
       elseif StartType == "close" then
         gpu.setBackground(0x6699ff)
-        gpu.setForeground(0xFFFFFF)
+        gpu.setForeground(0x000000)
         gpu.set(1, 1, "AmijaOS")
         
         StartType = "open"
