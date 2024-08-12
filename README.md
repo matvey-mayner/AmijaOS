@@ -5,9 +5,9 @@
 
 ## Developers
 
-- [matveymayner] https://github.com/matvey-mayner
+- matveymayner https://github.com/matvey-mayner
   
-- [Snus] https://github.com/super-snus
+- Snus https://github.com/super-snus
 
 ## License
 
