@@ -4,3 +4,5 @@ When you install The System (AmijaOS)
 !!!YOUR EEPROM WILL BE REWRITED!!!
 And you not have root access
 to edit The system!
+But Орешки тупитупи cant delete
+System!
