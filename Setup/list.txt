@@ -50,3 +50,4 @@
 /system/bin/AppCenter.lua
 /system/bin/filemanager.lua
 /system/core/bootloader.lua
+/Kernel.lua
