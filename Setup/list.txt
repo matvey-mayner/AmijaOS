@@ -16,6 +16,7 @@
 /system/core/lib/lastinfo.lua
 /system/core/lib/logs.lua
 /system/core/lib/natives.lua
+/system/core/lib/MAYNERAPI.lua
 /system/core/lib/note.lua
 /system/core/lib/package.lua
 /system/core/lib/parser.lua
