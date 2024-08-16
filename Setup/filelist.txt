@@ -1,0 +1,4 @@
+/system/System-main.lua
+/system/bin/AppCenter.lua
+/system/bin/filemanager.lua
+/system/core/logo.lua
