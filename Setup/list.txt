@@ -1,7 +1,3 @@
-/system/System-main.lua
-/system/bin/AppCenter.lua
-/system/bin/filemanager.lua
-/system/core/bootloader.lua
 /system/core/LICENSE
 /system/core/logo.lua
 /system/core/recovery.lua
@@ -50,3 +46,7 @@
 /system/core/unittests/c_split.lua
 /system/core/unittests/d_toParts.lua
 /system/core/unittests/e_sha256.lua
+/system/System-main.lua
+/system/bin/AppCenter.lua
+/system/bin/filemanager.lua
+/system/core/bootloader.lua
