@@ -242,12 +242,12 @@ local function selectDist(dists)
                     proxy.remove("/")
                     local label = strs[num]
                     if label == "core only" then
-                        label = "OpenKernel"
+                        label = "AmijaOS HDD"
                     end
                     proxy.setLabel(label)
                     funcs[num](proxy)
                     if computer.setBootAddress then computer.setBootAddress(proxy.address) end
-                    if computer.setBootFile then computer.setBootFile("/kernel.lua") end
+                    if computer.setBootFile then computer.setBootFile("/Kernel.lua") end
                     computer.shutdown("fast")
                 end
             end
@@ -290,13 +290,12 @@ end
 local function online()
     local dists = {}
 
-    local filelist = split(assert(getInternetFile("https://raw.githubusercontent.com/matvey-mayner/OpenKernel/main/ins/list.txt")), split(assert(getInternetFile("https://raw.githubusercontent.com/matvey-mayner/AmijaOS/main/Setup/filelist.txt")), "\n")
+    local filelist = split(assert(getInternetFile("https://raw.githubusercontent.com/matvey-mayner/AmijaOS/main/Setup/list.txt")), "\n")
     for i, v in ipairs(filelist) do
         if v ~= "" then
             local url, name = table.unpack(split(v, ";"))
             table.insert(dists, {name = name, call = function(proxy)
                 download("https://raw.githubusercontent.com/matvey-mayner/OpenKernel/main", proxy)
-                download("https://raw.githubusercontent.com/matvey-mayner/AmijaOS/main", proxy)
                 download(url, proxy)
             end})
         end
@@ -304,7 +303,6 @@ local function online()
 
     table.insert(dists, {name = "AmijaOS", call = function(proxy)
         download("https://raw.githubusercontent.com/matvey-mayner/OpenKernel/main", proxy)
-        download("https://raw.githubusercontent.com/matvey-mayner/AmijaOS/main", proxy)
     end})
 
     selectDist(dists)
