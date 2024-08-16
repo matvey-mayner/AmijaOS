@@ -28,7 +28,7 @@ local depth = gpu.getDepth()
 
 local drive = component.proxy(computer.getBootAddress())
 local internet = component.proxy(component.list("internet")() or "")
-local installerVersion = "OpenKernel installer v1.0"
+local installerVersion = "AmijaOS Setup"
 
 ------------------------------------
 
