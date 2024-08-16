@@ -241,7 +241,7 @@ local function selectDist(dists)
                     status("Please Wait")
                     proxy.remove("/")
                     local label = strs[num]
-                    if label == "core only" then
+                    if label == "AmijaOS" then
                         label = "AmijaOS HDD"
                     end
                     proxy.setLabel(label)
@@ -272,7 +272,7 @@ local function offline()
 end
 
 local function download(url, targetDrive)
-    local filelist = split(assert(getInternetFile(url .. "/ins/list.txt")), "\n")
+    local filelist = split(assert(getInternetFile(url .. "/Setup/list.txt")), "\n")
 
     for i, path in ipairs(filelist) do
         if path ~= "" then
@@ -295,14 +295,14 @@ local function online()
         if v ~= "" then
             local url, name = table.unpack(split(v, ";"))
             table.insert(dists, {name = name, call = function(proxy)
-                download("https://raw.githubusercontent.com/matvey-mayner/OpenKernel/main", proxy)
+                download("https://raw.githubusercontent.com/matvey-mayner/AmijaOS/main", proxy)
                 download(url, proxy)
             end})
         end
     end
 
     table.insert(dists, {name = "AmijaOS", call = function(proxy)
-        download("https://raw.githubusercontent.com/matvey-mayner/OpenKernel/main", proxy)
+        download("https://raw.githubusercontent.com/matvey-mayner/AmijaOS/main", proxy)
     end})
 
     selectDist(dists)
