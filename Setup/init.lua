@@ -247,7 +247,7 @@ local function selectDist(dists)
                     proxy.setLabel(label)
                     funcs[num](proxy)
                     if computer.setBootAddress then computer.setBootAddress(proxy.address) end
-                    if computer.setBootFile then computer.setBootFile("/Kernel.lua") end
+                    if computer.setBootFile then computer.setBootFile("/init.lua") end
                     computer.shutdown("fast")
                 end
             end
