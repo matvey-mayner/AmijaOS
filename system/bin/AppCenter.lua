@@ -2,6 +2,7 @@ local mayner = require("MAYNERAPI")
 local component = require("component")
 local gpu = component.gpu
 local computer = require("computer")
+local prog = require("program")
 
 gpu.setBackground(0x707070)
 gpu.fill(1, 2, 30, 25, " ")
