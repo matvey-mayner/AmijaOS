@@ -10,5 +10,7 @@ gpu.setBackground(0x707070)
 gpu.fill(31, 2, 50, 25, " ")
 
 mayner.DrawButton(30, 8, 7, 3, "FileManager", 0x000000, 0xFFFFFF, function()
+   while true do
       assert(prog.execute("/system/bin/filemanager.lua"))
+    end
 end)  
