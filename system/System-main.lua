@@ -2,6 +2,8 @@ local component = require("component")
 local gpu = component.gpu
 local computer = require("computer")
 
+local version = ""
+
 StartType = "close"
 AppOpen = nil
 
