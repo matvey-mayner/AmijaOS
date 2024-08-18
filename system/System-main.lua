@@ -11,6 +11,7 @@ gpu.setBackground(0x000000)
 gpu.setForeground(0xFFFFFF)
 gpu.fill(1, 1, 80, 25, " ")
 gpu.set(37, 9, "AmijaOS")
+gpu.set(1, 25, "Version 1.2")
 gpu.set(37, 11, "Kernel Initialized!")
 os.sleep(0.62)
 gpu.setBackground(0x000000)
@@ -45,20 +46,47 @@ gpu.setBackground(0xFFFFFF)
 gpu.setForeground(0x000000)
 gpu.fill(1, 1, 80, 1, " ")
 
+local function WorkSpace()
+    if StartType == "close" then
+    mayner.DrawButton(10, 8, 7, 1, "▟▙▃▃", 0xf5de31, 0x6BC1F7, function()
+        AppOpen = "/system/bin/filemanager.lua"
+    end)
+
+  mayner.DrawButton(10, 9, 7, 1, "  ██████", 0xf5de31, 0x6BC1F7, function()
+        AppOpen = "/system/bin/filemanager.lua"
+    end)
+
+  mayner.DrawButton(10, 10, 7, 1, "  ██████", 0xf5de31, 0x6BC1F7, function()
+        AppOpen = "/system/bin/filemanager.lua"
+    end)
+
+  mayner.DrawButton(10, 11, 7, 1, "▔▔▔▔", 0xf5de31, 0x6BC1F7, function()
+        AppOpen = "/system/bin/filemanager.lua"
+    end)
+end
+
 local function Start()
-    mayner.DrawButton(1, 2, 12, 1, "Shutdown    ", 0x000000, 0xFFFFFF, function()
+
+    mayner.DrawButton(1, 2, 12, 1, "Copyright © ", 0x000000, 0xFFFFFF, function()
+      if StartType == "open" then
+        AppOpen = "/system/bin/Copyright.lua"
+        StartType = "close"
+      end
+    end)
+
+    mayner.DrawButton(1, 3, 12, 1, "Shutdown O  ", 0x000000, 0xFFFFFF, function()
       if StartType == "open" then
         computer.shutdown()
       end
     end)
-    
-     mayner.DrawButton(1, 3, 12, 1, "Reboot     ", 0x000000, 0xFFFFFF, function()
+
+     mayner.DrawButton(1, 4, 12, 1, "Reboot ↺   ", 0x000000, 0xFFFFFF, function()
       if StartType == "open" then
         computer.shutdown(true)
       end
     end)
-    
-     mayner.DrawButton(1, 4, 12, 1, "App Center ", 0x000000, 0xFFFFFF, function()
+
+     mayner.DrawButton(1, 5, 12, 1, "App Center ", 0x000000, 0xFFFFFF, function()
       if StartType == "open" then
         --assert(prog.execute("/system/bin/test.lua"))
         AppOpen = "/system/bin/AppCenter.lua"
@@ -68,8 +96,8 @@ local function Start()
         gpu.set(1, 1, "AmijaOS")
       end
     end)
-  
-    mayner.DrawButton(1, 5, 12, 1, "File Manager", 0x000000, 0xFFFFFF, function()
+
+    mayner.DrawButton(1, 6, 12, 1, "File Manager", 0x000000, 0xFFFFFF, function()
       if StartType == "open" then
         --assert(prog.execute("/system/bin/test.lua"))
         AppOpen = "/system/bin/filemanager.lua"
@@ -84,23 +112,25 @@ end
 mayner.DrawButton(1, 1, 7, 1, "AmijaOS", 0x000000, 0xFFFFFF, function()
       Start()
       if StartType == "open" then
-        
+
         gpu.setBackground(0xFFFFFF)
         gpu.setForeground(0x000000)
         gpu.set(1, 1, "AmijaOS")
-        
+
         StartType = "close"
         gpu.setBackground(0x6BC1F7)
-        gpu.fill(1, 2, 12, 4, " ")
+        gpu.fill(1, 2, 12, 5, " ")
       elseif StartType == "close" then
         gpu.setBackground(0x6699ff)
         gpu.setForeground(0x000000)
         gpu.set(1, 1, "AmijaOS")
-        
+
         StartType = "open"
         Start()
       end
 end)
+
+WorkSpace()
 
 local function clear(BackGround)
   gpu.setBackground(BackGround)
