@@ -48,7 +48,7 @@
 /system/core/unittests/d_toParts.lua
 /system/core/unittests/e_sha256.lua
 /system/System-main.lua
-/system/bin/AppCenter.lua
-/system/bin/filemanager.lua
+/system/bin/AppCenter.amx
+/system/bin/filemanager.amx
 /system/core/bootloader.lua
 /init.lua
