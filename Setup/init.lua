@@ -290,6 +290,7 @@ end
 local function online()
     local dists = {}
 
+    --[[
     local filelist = split(assert(getInternetFile("https://raw.githubusercontent.com/matvey-mayner/AmijaOS/main/Setup/list.txt")), "\n")
     for i, v in ipairs(filelist) do
         if v ~= "" then
@@ -300,6 +301,7 @@ local function online()
             end})
         end
     end
+    ]]
 
     table.insert(dists, {name = "AmijaOS", call = function(proxy)
         download("https://raw.githubusercontent.com/matvey-mayner/AmijaOS/main", proxy)
