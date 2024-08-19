@@ -63,7 +63,7 @@ local function Start()
      mayner.DrawButton(1, 4, 12, 1, "App Center ", 0x000000, 0xFFFFFF, function()
       if StartType == "open" then
         --assert(prog.execute("/system/bin/test.lua"))
-        AppOpen = "/system/bin/AppCenter.lua"
+        AppOpen = "/system/bin/AppCenter.amx"
         StartType = "close"
         gpu.setBackground(0xFFFFFF)
         gpu.setForeground(0x000000)
@@ -74,7 +74,7 @@ local function Start()
     mayner.DrawButton(1, 5, 12, 1, "File Manager", 0x000000, 0xFFFFFF, function()
       if StartType == "open" then
         --assert(prog.execute("/system/bin/test.lua"))
-        AppOpen = "/system/bin/filemanager.lua"
+        AppOpen = "/system/bin/filemanager.amx"
         StartType = "close"
         gpu.setBackground(0xFFFFFF)
         gpu.setForeground(0x000000)
