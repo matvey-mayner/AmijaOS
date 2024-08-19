@@ -2,7 +2,7 @@ local component = require("component")
 local gpu = component.gpu
 local computer = require("computer")
 
-local version = "1.1"
+local version = "1.1-indev"
 
 StartType = "close"
 AppOpen = nil
