@@ -305,6 +305,10 @@ local function online()
         download("https://raw.githubusercontent.com/matvey-mayner/AmijaOS/main", proxy)
     end})
 
+    table.insert(dists, {name = "AmijaOS-InDev", call = function(proxy)
+        download("https://raw.githubusercontent.com/matvey-mayner/AmijaOS/indev", proxy)
+    end})
+
     selectDist(dists)
 end
 
