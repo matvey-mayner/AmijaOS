@@ -37,8 +37,8 @@ bootloader.supportedArchitectures = {
 local architecture = "unknown"
 if computer.getArchitecture then architecture = computer.getArchitecture() end
 if not bootloader.supportedArchitectures[architecture] then
-    pcall(computer.setArchitecture, "Lua 5.4")
-    pcall(computer.setArchitecture, "Lua 5.3")
+--    pcall(computer.setArchitecture, "Lua 5.4")
+--    pcall(computer.setArchitecture, "Lua 5.3")
 end
 
 ------------------------------------ bootloader constants
