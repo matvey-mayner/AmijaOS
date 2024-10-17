@@ -11,7 +11,7 @@ local error = error
 local pcall = pcall
 
 _G._COREVERSION = "OpenKernel 1.1"
-_G._OSVERSION = "AmijaOS 1.5.1"
+_G._OSVERSION = "AmijaOS 1.2.1"
 
 local bootloader = params.unpackBootloader or {} --библиотека загрузчика
 bootloader.firstEeprom = component.list("eeprom")() --хранит адрес eeprom с которого произошла загрузка
