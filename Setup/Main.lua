@@ -40,7 +40,7 @@ end)
     gpu.set(25, 11, "!!!YOUR EEPROM WILL BE REWRITED!!!")
     gpu.set(25, 12, "And you not have root access")
     gpu.set(25, 13, "To edit The system!")
-    gpu.set(25, 14, "But Орешки тупитупи cant delete") -- Ну Это Правда!
+    gpu.set(25, 14, "But Орешки тупитупи cant delete") -- Ну Это Правда!; СУПЧИК НАСРАЛ НЕ ТАК - gamma63
     gpu.set(25, 15, "System!")
 
 mayner.DrawButton(69, 23, 6, 1, "Accept", 0xFFFFFF, 0x4b4b4b, function()
