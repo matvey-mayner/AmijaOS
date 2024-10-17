@@ -228,29 +228,29 @@ function bootloader.runShell(path, ...)
         bootloader.bootSplash("!KERNEL PANIC!")
         os.sleep(0.05)
         computer.beep(100, 0.8)
-        local component = require("component")
-        local gpu = component.gpu
-        local computer = require("computer")
-        local event = require("event")
+local component = require("component")
+local gpu = component.gpu
+local computer = require("computer")
+local os = require("os")
 
-          gpu.setBackground(0x000000)
-          gpu.setForeground(0xFFFFFF)
-          gpu.fill(1, 1, 50, 16, " ")
+gpu.setResolution(80, 25)
+gpu.setBackground(0x787878)
+gpu.fill(1, 2, 30, 25, " ")
+gpu.setBackground(0x787878)
+gpu.setForeground(0x00000)
+gpu.fill(31, 2, 50, 25, " ")
 
-        gpu.setResolution(50, 16)
-        computer.beep(100, 0.8)
-        os.sleep(0.08)
-        gpu.set(18, 1, "!Kernel Panic!")
-        os.sleep(0.08)
-        gpu.set(16, 2, "Your Computer Has")
-        os.sleep(0.08)
-        gpu.set(19, 3, "Been Crashed")
-        os.sleep(0.08)
-        gpu.set(1, 15, "Error Code: KERNEL_DID_NOT_FIND_THE_SYSTEM")
-
-        while true do
-            event.pull("touch")
-        end
+gpu.set(25, 4, "░░▄▀▀▀▀▀▄░░")
+gpu.set(25, 5, "░▐░▄▄░▄▄░▌░")
+gpu.set(25, 6, "░▐░▀░▄░▀░▌░")
+gpu.set(25, 7, "░░▌▄░▄░▄▐░░")
+gpu.set(25, 8, "░░▐░▀░▀░▌░░")
+gpu.set(25, 9, "░░░▀▀▀▀▀░░░")
+gpu.set(15, 11, "!Your system has encountered a critical error!")
+gpu.set(18, 11, "Try to restart the system.")
+gpu.set(18, 11, "If it's screen start again reinstall system.")
+os.sleep(0.3)
+error(err, 0)
         
         bootloader.waitEnter()
     end
@@ -571,48 +571,51 @@ end
 ------------------------------------ error output
 
 if log_ok and not getRegistry().disableAutoReboot then --если удалось записать log то комп перезагрузиться, а если не удалось то передаст ошибку в bios
-    local component = require("component")
-    local gpu = component.gpu
-    local computer = require("computer")
-    local event = require("event")
-    
-      gpu.setBackground(0x000000)
-      gpu.setForeground(0xFFFFFF)
-      gpu.fill(1, 1, 50, 16, " ")
-    gpu.setResolution(50, 16)
-    computer.beep(100, 0.8)
-    os.sleep(0.08)
-    gpu.set(18, 1, "!Kernel Panic!")
-    os.sleep(0.08)
-    gpu.set(16, 2, "Your Computer Has")
-    os.sleep(0.08)
-    gpu.set(19, 3, "Been Crashed")
-    os.sleep(0.08)
-    gpu.set(1, 15, "Error Code: KERNEL_FAILED_INIT_SYSTEM")
+local component = require("component")
+local gpu = component.gpu
+local computer = require("computer")
+local os = require("os")
 
-    while true do
-        event.pull("touch")
-    end
+gpu.setResolution(80, 25)
+gpu.setBackground(0x787878)
+gpu.fill(1, 2, 30, 25, " ")
+gpu.setBackground(0x787878)
+gpu.setForeground(0x00000)
+gpu.fill(31, 2, 50, 25, " ")
+
+gpu.set(25, 4, "░░▄▀▀▀▀▀▄░░")
+gpu.set(25, 5, "░▐░▄▄░▄▄░▌░")
+gpu.set(25, 6, "░▐░▀░▄░▀░▌░")
+gpu.set(25, 7, "░░▌▄░▄░▄▐░░")
+gpu.set(25, 8, "░░▐░▀░▀░▌░░")
+gpu.set(25, 9, "░░░▀▀▀▀▀░░░")
+gpu.set(15, 11, "!Your system has encountered a critical error!")
+gpu.set(18, 11, "Try to restart the system.")
+gpu.set(18, 11, "If it's screen start again reinstall system.")
+os.sleep(0.3)
+error(err, 0)
 end
-    local component = require("component")
-    local gpu = component.gpu
-    local computer = require("computer")
-    local event = require("event")
 
-      gpu.setBackground(0x000000)
-      gpu.setForeground(0xFFFFFF)
-      gpu.fill(1, 1, 50, 16, " ")
-        gpu.setResolution(50, 16)
-    computer.beep(100, 0.8)
-    os.sleep(0.08)
-    gpu.set(18, 1, "!Kernel Panic!")
-    os.sleep(0.08)
-    gpu.set(16, 2, "Your Computer Has")
-    os.sleep(0.08)
-    gpu.set(19, 3, "Been Crashed")
-    os.sleep(0.08)
-    gpu.set(1, 15, "Error Code: KERNEL_FAILED_INIT_SYSTEM")
+local component = require("component")
+local gpu = component.gpu
+local computer = require("computer")
+local os = require("os")
 
-while true do
-    event.pull("touch")
-end
+gpu.setResolution(80, 25)
+gpu.setBackground(0x787878)
+gpu.fill(1, 2, 30, 25, " ")
+gpu.setBackground(0x787878)
+gpu.setForeground(0x00000)
+gpu.fill(31, 2, 50, 25, " ")
+
+gpu.set(25, 4, "░░▄▀▀▀▀▀▄░░")
+gpu.set(25, 5, "░▐░▄▄░▄▄░▌░")
+gpu.set(25, 6, "░▐░▀░▄░▀░▌░")
+gpu.set(25, 7, "░░▌▄░▄░▄▐░░")
+gpu.set(25, 8, "░░▐░▀░▀░▌░░")
+gpu.set(25, 9, "░░░▀▀▀▀▀░░░")
+gpu.set(15, 11, "!Your system has encountered a critical error!")
+gpu.set(18, 11, "Try to restart the system.")
+gpu.set(18, 11, "If it's screen start again reinstall system.")
+os.sleep(0.3)
+error(err, 0)
