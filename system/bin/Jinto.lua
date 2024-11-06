@@ -11,13 +11,14 @@ gpu.setBackground(0x000000)
 gpu.setForeground(0xFFFFFF)
 gpu.fill(31, 2, 50, 25, " ")
 
--- Version 1.6
+-- Version 1.7
 local component = component
 local computer = computer
 local fs = component.proxy(computer.getBootAddress())
+local gpu = component.proxy(component.list("gpu")())
 local screen = component.list("screen")()
 gpu.bind(screen)
-gpu.setResolution(50, 16)
+gpu.setResolution(50, 16)  -- Set screen resolution
 
 local currentDir = "/"
 local hostapt = "http://83.25.177.183/package-host/packages/"
@@ -282,6 +283,23 @@ local function edit(path)
     end
 end
 
+local function help()
+    clear()
+    title()
+    write(1, 2, "ls = list")
+    write(1, 3, "run = starting app")
+    write(1, 4, "cls = clear screen")
+    write(1, 5, "cd = move to directory")
+    write(1, 6, "cat = reading file")
+    write(1, 7, "rm = removing file")
+    write(1, 8, "edit = editing file")
+    write(1, 9, "mkdir = making directory")
+    write(1, 10, "apt install = installing file")
+    write(1, 11, "update = update system")
+    write(1, 12, "apt set = set apt host")
+    write(1, 13, "help = commands list")
+end
+
 local function run(path)
     local fullPath = resolvePath(path)
     if fs.exists(fullPath) then
@@ -325,11 +343,17 @@ local function executeCommand(command)
         title()
     elseif args[1] == "ls" then
         if args[2] == "disks" then
+            clear()
+            title()
             listDisks()
         else
+            clear()
+            title()
             ls()
         end
     elseif args[1] == "cd" and args[2] then
+        clear()
+        title()
         cd(args[2])
     elseif args[1] == "rm" and args[2] then
         rm(args[2])
@@ -352,8 +376,10 @@ local function executeCommand(command)
             hostapt = args[3]
         end
     elseif args[1] == "update" then
-        apt(sysupdate.. args[1], "/system/")
+        apt(sysupdate.. "/system/")
         computer.shutdown(true)
+        elseif args[1] == "help" then
+        help()
     else
         run("/system/bin/".. command)
     end
